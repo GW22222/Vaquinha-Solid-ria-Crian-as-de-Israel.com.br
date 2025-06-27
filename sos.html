@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaquinha Solidária - Crianças de Israel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2f52, #1a3a6c);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo i {
+            font-size: 42px;
+            color: #1a3a6c;
+            margin-right: 12px;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            color: #1a3a6c;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .banner {
+            background: linear-gradient(90deg, #ff8a00, #e64a19);
+            border-radius: 12px;
+            padding: 25px;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .banner:before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+        
+        .banner h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .banner p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .valor-meta {
+            font-size: 46px;
+            font-weight: 900;
+            margin: 20px 0;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+            color: #fff;
+            letter-spacing: -1px;
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 25px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            margin: 20px 0;
+            overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00c853, #2e7d32);
+            width: 35%;
+            border-radius: 12px;
+            transition: width 1s ease-in-out;
+            box-shadow: 0 0 15px rgba(46, 125, 50, 0.5);
+        }
+        
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            margin: 20px 0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #00c853, #009624);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #00b34a, #008420);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(90deg, #1a3a6c, #2d5a9a);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(90deg, #15305a, #244a82);
+            transform: translateY(-5px);
+        }
+        
+        .form-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+        
+        .active-form {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .form-header h2 {
+            color: #1a3a6c;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .form-header p {
+            color: #666;
+            font-size: 18px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #444;
+            font-size: 18px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 18px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            border-color: #1a3a6c;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 58, 108, 0.2);
+        }
+        
+        .success-message {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+        
+        .success-icon {
+            font-size: 80px;
+            color: #00c853;
+            margin-bottom: 25px;
+        }
+        
+        .success-message h2 {
+            color: #1a3a6c;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .success-message p {
+            color: #666;
+            font-size: 20px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .pix-container {
+            background-color: #f5f9ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 2px dashed #1a3a6c;
+        }
+        
+        .pix-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .pix-header h3 {
+            color: #1a3a6c;
+            font-size: 24px;
+        }
+        
+        .pix-details {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .pix-details p {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .pix-key {
+            font-weight: 700;
+            font-size: 20px;
+            color: #1a3a6c;
+            word-break: break-all;
+            padding: 15px;
+            background-color: #e8f4ff;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .copy-btn {
+            background: #1a3a6c;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px auto;
+            transition: background 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .copy-btn i {
+            margin-right: 10px;
+        }
+        
+        .copy-btn:hover {
+            background: #15305a;
+            transform: translateY(-3px);
+        }
+        
+        .chat-container {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+        }
+        
+        .chat-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff8a00, #e64a19);
+            color: white;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .chat-btn:hover {
+            transform: scale(1.15) rotate(15deg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .chat-box {
+            position: fixed;
+            bottom: 110px;
+            right: 25px;
+            width: 350px;
+            height: 500px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform: translateY(30px);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+            z-index: 1000;
+        }
+        
+        .chat-box.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .chat-header {
+            background: linear-gradient(90deg, #1a3a6c, #2d5a9a);
+            color: white;
+            padding: 18px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .chat-header i {
+            font-size: 24px;
+            margin-right: 12px;
+        }
+        
+        .chat-header h3 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+        }
+        
+        .message {
+            margin-bottom: 18px;
+            max-width: 85%;
+            padding: 15px;
+            border-radius: 18px;
+            font-size: 16px;
+            line-height: 1.5;
+            position: relative;
+        }
+        
+        .message.bot {
+            background-color: #e8f4ff;
+            border-bottom-left-radius: 5px;
+            align-self: flex-start;
+        }
+        
+        .message.user {
+            background-color: #d1e7dd;
+            border-bottom-right-radius: 5px;
+            margin-left: auto;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            background-color: white;
+            border-top: 1px solid #eee;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 14px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 16px;
+            margin-right: 12px;
+        }
+        
+        .chat-input button {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #1a3a6c;
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .chat-input button:hover {
+            background: #15305a;
+            transform: scale(1.1);
+        }
+        
+        footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            padding: 25px;
+            margin-top: 30px;
+            font-weight: 500;
+        }
+        
+        .progress-bar-steps {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .progress-bar-steps:before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: #e0e0e0;
+            z-index: 1;
+        }
+        
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+        }
+        
+        .step-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #888;
+        }
+        
+        .step-label {
+            font-size: 14px;
+            color: #888;
+            text-align: center;
+        }
+        
+        .progress-step.active .step-icon {
+            background-color: #1a3a6c;
+            color: white;
+        }
+        
+        .progress-step.active .step-label {
+            color: #1a3a6c;
+            font-weight: bold;
+        }
+        
+        .progress-bar-steps.active-1:before {
+            background: linear-gradient(to right, #1a3a6c 0%, #1a3a6c 25%, #e0e0e0 25%, #e0e0e0 100%);
+        }
+        
+        .progress-bar-steps.active-2:before {
+            background: linear-gradient(to right, #1a3a6c 0%, #1a3a6c 50%, #e0e0e0 50%, #e0e0e0 100%);
+        }
+        
+        .progress-bar-steps.active-3:before {
+            background: linear-gradient(to right, #1a3a6c 0%, #1a3a6c 75%, #e0e0e0 75%, #e0e0e0 100%);
+        }
+        
+        .progress-bar-steps.active-4:before {
+            background: #1a3a6c;
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(26, 58, 108, 0.2);
+            border-top: 5px solid #1a3a6c;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section h2 {
+            text-align: center;
+            color: #1a3a6c;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 28px;
+        }
+        
+        .testimonial {
+            display: flex;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+        
+        .testimonial-avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #1a3a6c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            margin-right: 18px;
+            flex-shrink: 0;
+        }
+        
+        .testimonial-content {
+            flex: 1;
+        }
+        
+        .testimonial-name {
+            font-weight: bold;
+            color: #1a3a6c;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        
+        .testimonial-text {
+            background: #f0f7ff;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .testimonial-date {
+            font-size: 14px;
+            color: #888;
+            margin-top: 8px;
+            text-align: right;
+        }
+        
+        .news-item {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .news-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .news-title {
+            font-weight: bold;
+            font-size: 20px;
+            color: #1a3a6c;
+            margin-bottom: 12px;
+        }
+        
+        .news-date {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 12px;
+        }
+        
+        /* NOVO ESTILO PARA IMAGENS DE NOTÍCIAS */
+        .news-image {
+            width: 100%;
+            border-radius: 12px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 250px;
+            object-fit: cover;
+            border: 2px solid #f0f0f0;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            margin: 30px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(26, 58, 108, 0.2);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            min-width: 150px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1a3a6c;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .story {
+            background: #f0f7ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            line-height: 1.7;
+            font-size: 17px;
+        }
+        
+        .story h3 {
+            color: #1a3a6c;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .transparency {
+            background: #e8f4ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            font-size: 17px;
+        }
+        
+        .transparency h3 {
+            color: #1a3a6c;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        
+        .transparency ul {
+            padding-left: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .transparency li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        
+        .value-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .value-option {
+            background: #e8f4ff;
+            border: 3px solid #c4dbf7;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .value-option:hover, .value-option.selected {
+            background: #c4dbf7;
+            border-color: #1a3a6c;
+            transform: translateY(-5px);
+        }
+        
+        .value-option .amount {
+            font-weight: bold;
+            font-size: 22px;
+            color: #1a3a6c;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 15px;
+            }
+            
+            .logo h1 {
+                font-size: 24px;
+            }
+            
+            .banner h2 {
+                font-size: 24px;
+            }
+            
+            .valor-meta {
+                font-size: 38px;
+            }
+            
+            .stat-item {
+                min-width: 120px;
+                padding: 15px;
+            }
+            
+            .stat-value {
+                font-size: 28px;
+            }
+            
+            .value-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            /* Ajustes para imagens em dispositivos móveis */
+            .news-image {
+                height: 180px;
+            }
+        }
+        
+        .heart-icon {
+            color: #e74c3c;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .impact-section {
+            background: linear-gradient(rgba(26, 58, 108, 0.85), rgba(26, 58, 108, 0.95)), 
+                        url('https://images.unsplash.com/photo-1508179522353-11ba468c4a1c?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            padding: 40px 30px;
+            color: white;
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        .impact-section h2 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 32px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+        
+        .impact-section p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .impact-item {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .impact-item i {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #ff8a00;
+        }
+        
+        .impact-item .number {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .impact-item div {
+            font-size: 18px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        /* Estilo para a imagem das crianças */
+        .war-image {
+            width: 100%;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            display: block;
+        }
+        
+        .image-caption {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.85);
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 16px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .image-overlay {
+            position: relative;
+            margin: 30px 0;
+        }
+        
+        .image-overlay::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+        
+        .video-section {
+            margin: 40px 0;
+        }
+        
+        .video-title {
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-hands-helping"></i>
+                <h1>Vaquinha Solidária: Crianças de Israel</h1>
+            </div>
+            <p>Ajude as crianças vítimas da guerra em Israel</p>
+        </header>
+        
+        <div class="banner">
+            <h2>EMERGÊNCIA HUMANITÁRIA</h2>
+            <p>Sua doação pode salvar vidas e trazer esperança</p>
+            <div class="valor-meta">R$ 500.000,00</div>
+            <p>Meta para ajudar crianças feridas e desabrigadas</p>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="progress-info">
+                <span>Arrecadado: R$ 175.000,00</span>
+                <span>35% da meta</span>
+            </div>
+        </div>
+        
+        <button id="doarBtn" class="btn btn-primary">
+            <i class="fas fa-heart heart-icon"></i> DOAR AGORA
+        </button>
+        
+        <div class="video-section">
+            <div class="video-title">
+                <i class="fas fa-video"></i> Situação das Crianças em Israel
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube-nocookie.com/embed/c9tJLPEA8Uk?si=xACB9fGKbQUDjlCZ&amp;controls=0&amp;start=4" 
+                        title="YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+        
+        <div class="impact-section">
+            <h2><i class="fas fa-hands-helping"></i> Nosso Impacto</h2>
+            <p>Cada doação faz a diferença na vida de uma criança</p>
+            
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <i class="fas fa-home"></i>
+                    <div class="number">320</div>
+                    <div>Crianças abrigadas</div>
+                </div>
+                <div class="impact-item">
+                    <i class="fas fa-ambulance"></i>
+                    <div class="number">178</div>
+                    <div>Crianças atendidas</div>
+                </div>
+                <div class="impact-item">
+                    <i class="fas fa-utensils"></i>
+                    <div class="number">12.500</div>
+                    <div>Refeições fornecidas</div>
+                </div>
+                <div class="impact-item">
+                    <i class="fas fa-heartbeat"></i>
+                    <div class="number">84</div>
+                    <div>Tratamentos médicos</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><i class="fas fa-newspaper"></i> Situação Atual</h2>
+            
+            <div class="story">
+                <h3>A Crise Humanitária</h3>
+                <p>Desde o início do conflito, milhares de crianças israelenses foram deslocadas de suas casas, feridas ou perderam familiares. Muitas estão vivendo em abrigos temporários, sem acesso adequado a alimentos, água potável e cuidados médicos.</p>
+                
+                <p>As crianças são as maiores vítimas desta guerra. Elas enfrentam traumas profundos, medo constante e a interrupção de sua educação e desenvolvimento. Nossa missão é oferecer apoio imediato e esperança para um futuro melhor.</p>
+            </div>
+            
+            <div class="story">
+                <h3>História de Esperança: A Família Cohen</h3>
+                <p>O bombardeio destruiu a casa dos Cohen durante a noite. David, de 8 anos, e sua irmã Sarah, de 5, ficaram feridos e perderam o pai no ataque. Graças às doações, conseguimos:</p>
+                
+                <ul>
+                    <li>Fornecer tratamento médico para as crianças</li>
+                    <li>Abrigar a família em local seguro</li>
+                    <li>Fornecer apoio psicológico</li>
+                    <li>Garantir acesso à educação remota</li>
+                </ul>
+                
+                <p>"Não sei o que seria de nós sem essa ajuda", diz Rachel Cohen, mãe das crianças. "Vocês nos deram mais do que recursos, deram esperança."</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><i class="fas fa-comments"></i> Depoimentos</h2>
+            
+            <div class="testimonial">
+                <div class="testimonial-avatar">M</div>
+                <div class="testimonial-content">
+                    <div class="testimonial-name">Marcos Silva</div>
+                    <div class="testimonial-text">
+                        Doei porque sei que cada centavo faz diferença na vida dessas crianças. Recebi fotos e relatórios mostrando exatamente como meu dinheiro foi usado. Transparência total!
+                    </div>
+                    <div class="testimonial-date">Hoje às 15:23</div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-avatar">A</div>
+                <div class="testimonial-content">
+                    <div class="testimonial-name">Ana Costa</div>
+                    <div class="testimonial-text">
+                        Como mãe, não consigo imaginar o sofrimento dessas crianças. Doei o que pude e compartilhei com amigos. Juntos podemos fazer a diferença.
+                    </div>
+                    <div class="testimonial-date">Ontem às 19:45</div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-avatar">J</div>
+                <div class="testimonial-content">
+                    <div class="testimonial-name">João Oliveira</div>
+                    <div class="testimonial-text">
+                        Trabalho com ajuda humanitária há anos e posso afirmar: esta é uma das iniciativas mais sérias e eficientes que já vi. Cada doação chega onde é mais necessário.
+                    </div>
+                    <div class="testimonial-date">22 de Junho às 11:30</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><i class="fas fa-play-circle"></i> Reportagens e Notícias</h2>
+            
+            <div class="news-item">
+                <div class="news-title">Crianças israelenses enfrentam traumas profundos após ataques</div>
+                <div class="news-date">24 de Junho de 2025</div>
+                <!-- Imagem adicionada -->
+                <img src="1.jpg" 
+                     alt="Crianças recebendo apoio psicológico" 
+                     class="news-image">
+                <p>Psicólogos relatam aumento de casos de ansiedade, depressão e estresse pós-traumático entre crianças afetadas pelo conflito. Programas de apoio psicológico são urgentes.</p>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">Organizações se unem para reconstruir escolas destruídas</div>
+                <div class="news-date">20 de Junho de 2025</div>
+                <!-- Imagem adicionada -->
+                <img src="2.jpg" 
+                     alt="Crianças em sala de aula" 
+                     class="news-image">
+                <p>Iniciativa busca garantir que crianças possam retomar os estudos em ambientes seguros e adequados, essenciais para sua recuperação emocional.</p>
+            </div>
+        </div>
+        
+        <!-- Formulário de Doação (Passo 1) -->
+        <div id="formDoacao" class="form-container">
+            <div class="form-header">
+                <h2>Faça sua doação</h2>
+                <p>Seu apoio faz a diferença na vida de uma criança</p>
+            </div>
+            
+            <div class="progress-bar-steps active-1">
+                <div class="progress-step active">
+                    <div class="step-icon">1</div>
+                    <div class="step-label">Dados</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-icon">2</div>
+                    <div class="step-label">Valor</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-icon">3</div>
+                    <div class="step-label">Pagamento</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-icon">4</div>
+                    <div class="step-label">Confirmação</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" placeholder="Digite seu nome completo">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="Digite seu e-mail">
+            </div>
+            
+            <div class="form-group">
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" placeholder="Digite seu CPF" maxlength="14">
+            </div>
+            
+            <button id="proximoValorBtn" class="btn btn-secondary">PRÓXIMO</button>
+        </div>
+        
+        <!-- Escolha do Valor (Passo 2) -->
+        <div id="escolhaValor" class="form-container">
+            <div class="form-header">
+                <h2>Escolha o valor da doação</h2>
+                <p>Valor mínimo: R$ 50,00</p>
+            </div>
+            
+            <div class="progress-bar-steps active-2">
+                <div class="progress-step">
+                    <div class="step-icon">1</div>
+                    <div class="step-label">Dados</div>
+                </div>
+                <div class="progress-step active">
+                    <div class="step-icon">2</div>
+                    <div class="step-label">Valor</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-icon">3</div>
+                    <div class="step-label">Pagamento</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-icon">4</div>
+                    <div class="step-label">Confirmação</div>
+                </div>
+            </div>
+            
+            <div class="value-options">
+                <div class="value-option" data-value="50">
+                    <div class="amount">R$ 50,00</div>
+                    <div>Alimenta 1 criança por 5 dias</div>
+                </div>
+                <div class="value-option" data-value="100">
+                    <div class="amount">R$ 100,00</div>
+                    <div>Kit de higiene para 4 crianças</div>
+                </div>
+                <div class="value-option" data-value="150">
+                    <div class="amount">R$ 150,00</div>
+                    <div>Ajuda psicológica para 1 criança</div>
+                </div>
+                <div class="value-option" data-value="200">
+                    <div class="amount">R$ 200,00</div>
+                    <div>Material escolar para 2 crianças</div>
+                </div>
+                <div class="value-option" data-value="500">
+                    <div class="amount">R$ 500,00</div>
+                    <div>Ajuda médica para 1 criança</div>
+                </div>
+                <div class="value-option" id="outroValor">
+                    <div class="amount">Outro valor</div>
+                    <div>(Mínimo R$ 50,00)</div>
+                </div>
+            </div>
+            
+            <div id="customValueGroup" class="form-group" style="display: none;">
+                <label for="valorPersonalizado">Digite o valor (R$)</label>
+                <input type="number" id="valorPersonalizado" min="50" placeholder="Valor mínimo R$ 50,00">
+            </div>
+            
+            <button id="proximoPagamentoBtn" class="btn btn-secondary">PRÓXIMO</button>
+        </div>
+        
+        <!-- Pagamento via PIX (Passo 3) -->
+        <div id="pagamentoPix" class="form-container">
+            <div class="form-header">
+                <h2>Pagamento via PIX</h2>
+                <p>Forma rápida, segura e sem taxas</p>
+            </div>
+            
+            <div class="progress-bar-steps active-3">
+                <div class="progress-step">
+                    <div class="step-icon">1</div>
+                    <div class="step-label">Dados</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-icon">2</div>
+                    <div class="step-label">Valor</div>
+                </div>
+                <div class="progress-step active">
+                    <div class="step-icon">3</div>
+                    <div class="step-label">Pagamento</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-icon">4</div>
+                    <div class="step-label">Confirmação</div>
+                </div>
+            </div>
+            
+            <div class="pix-container">
+                <div class="pix-header">
+                    <h3>PAGAMENTO VIA PIX</h3>
+                </div>
+                <div class="pix-details">
+                    <p><strong>Valor da Doação:</strong></p>
+                    <p class="valor-beneficio" id="valorDoacao">R$ 150,00</p>
+                    <p><strong>Chave PIX:</strong></p>
+                    <p class="pix-key">criancasisrael@ong.org.br</p>
+                    <p><i class="fas fa-exclamation-circle"></i> Após o pagamento, clique no botão abaixo para confirmar.</p>
+                </div>
+                <button class="copy-btn" onclick="copiarChavePix()">
+                    <i class="fas fa-copy"></i> COPIAR CHAVE PIX
+                </button>
+            </div>
+            
+            <button id="confirmarPagamentoBtn" class="btn btn-primary">JÁ REALIZEI O PAGAMENTO</button>
+        </div>
+        
+        <!-- Confirmação (Passo 4) -->
+        <div id="confirmacao" class="success-message">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>OBRIGADO POR SUA SOLIDARIEDADE!</h2>
+            <p>Sua doação de <strong id="valorDoacaoConfirmado">R$ 150,00</strong> está sendo processada e fará uma grande diferença na vida das crianças de Israel.</p>
+            <p>Você receberá um e-mail de confirmação com os detalhes da sua doação e informações sobre como seu apoio está sendo utilizado.</p>
+            
+            <div class="transparency">
+                <h3>Transparência e Prestação de Contas</h3>
+                <p>Comprometemo-nos a utilizar seu dinheiro com responsabilidade:</p>
+                <ul>
+                    <li>85% direto para ajuda humanitária</li>
+                    <li>10% para custos operacionais</li>
+                    <li>5% para campanhas de conscientização</li>
+                </ul>
+                <p>Relatórios detalhados são publicados mensalmente em nosso site.</p>
+            </div>
+            
+            <button id="compartilharBtn" class="btn btn-secondary">
+                <i class="fas fa-share-alt"></i> COMPARTILHAR ESTA CAUSA
+            </button>
+        </div>
+        
+        <!-- Tela de Processamento -->
+        <div id="processando" class="success-message">
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+            <h2>Processando sua doação</h2>
+            <p>Estamos confirmando as informações para ajudar as crianças de Israel...</p>
+            <p>Isso pode levar alguns minutos.</p>
+            <p style="margin-top: 20px;"><i class="fas fa-info-circle"></i> Você receberá uma confirmação por e-mail assim que tudo estiver concluído.</p>
+        </div>
+    </div>
+    
+    <!-- Chat Integrado -->
+    <div class="chat-container">
+        <button class="chat-btn" id="chatToggle">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <i class="fas fa-robot"></i>
+                <h3>Assistente Solidário</h3>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    Olá! Sou o assistente da Vaquinha Solidária para as Crianças de Israel. Estou aqui para te ajudar com qualquer dúvida sobre como ajudar.
+                </div>
+                <div class="message bot">
+                    Seu apoio é essencial para crianças que perderam tudo na guerra. Cada doação faz a diferença!
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+                <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        Vaquinha Solidária: Crianças de Israel - Uma iniciativa humanitária independente
+        <br>
+        © 2025 Todos os direitos reservados. Sua privacidade é importante para nós.
+    </footer>
+
+    <script>
+        // Elementos do DOM
+        const doarBtn = document.getElementById('doarBtn');
+        const formDoacao = document.getElementById('formDoacao');
+        const proximoValorBtn = document.getElementById('proximoValorBtn');
+        const escolhaValor = document.getElementById('escolhaValor');
+        const valorOptions = document.querySelectorAll('.value-option');
+        const outroValor = document.getElementById('outroValor');
+        const customValueGroup = document.getElementById('customValueGroup');
+        const valorPersonalizado = document.getElementById('valorPersonalizado');
+        const proximoPagamentoBtn = document.getElementById('proximoPagamentoBtn');
+        const pagamentoPix = document.getElementById('pagamentoPix');
+        const valorDoacao = document.getElementById('valorDoacao');
+        const confirmarPagamentoBtn = document.getElementById('confirmarPagamentoBtn');
+        const confirmacao = document.getElementById('confirmacao');
+        const valorDoacaoConfirmado = document.getElementById('valorDoacaoConfirmado');
+        const processando = document.getElementById('processando');
+        const compartilharBtn = document.getElementById('compartilharBtn');
+        
+        // Elementos do Chat
+        const chatToggle = document.getElementById('chatToggle');
+        const chatBox = document.getElementById('chatBox');
+        const chatMessages = document.getElementById('chatMessages');
+        const userInput = document.getElementById('userInput');
+        const sendMessage = document.getElementById('sendMessage');
+        
+        // Valor selecionado
+        let selectedAmount = 150;
+        
+        // Event Listeners
+        doarBtn.addEventListener('click', () => {
+            formDoacao.classList.add('active-form');
+            scrollToElement(formDoacao);
+        });
+        
+        proximoValorBtn.addEventListener('click', () => {
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const cpf = document.getElementById('cpf').value;
+            
+            if (nome && email && cpf && cpf.replace(/\D/g, '').length === 11) {
+                formDoacao.classList.remove('active-form');
+                escolhaValor.classList.add('active-form');
+                scrollToElement(escolhaValor);
+            } else {
+                alert('Por favor, preencha todos os campos corretamente.');
+            }
+        });
+        
+        valorOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remover seleção de todos
+                valorOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Selecionar este
+                this.classList.add('selected');
+                
+                // Se for "Outro valor", mostrar campo personalizado
+                if (this === outroValor) {
+                    customValueGroup.style.display = 'block';
+                    selectedAmount = 0;
+                } else {
+                    customValueGroup.style.display = 'none';
+                    selectedAmount = parseFloat(this.dataset.value);
+                }
+            });
+        });
+        
+        valorPersonalizado.addEventListener('input', function() {
+            const value = parseFloat(this.value);
+            if (value >= 50) {
+                selectedAmount = value;
+            }
+        });
+        
+        proximoPagamentoBtn.addEventListener('click', () => {
+            if (selectedAmount >= 50) {
+                escolhaValor.classList.remove('active-form');
+                pagamentoPix.classList.add('active-form');
+                valorDoacao.textContent = `R$ ${selectedAmount.toFixed(2).replace('.', ',')}`;
+                scrollToElement(pagamentoPix);
+            } else {
+                alert('Por favor, selecione um valor de doação (mínimo R$ 50,00).');
+            }
+        });
+        
+        confirmarPagamentoBtn.addEventListener('click', () => {
+            pagamentoPix.classList.remove('active-form');
+            processando.style.display = 'block';
+            scrollToElement(processando);
+            
+            // Simular processamento
+            setTimeout(() => {
+                processando.style.display = 'none';
+                confirmacao.style.display = 'block';
+                valorDoacaoConfirmado.textContent = `R$ ${selectedAmount.toFixed(2).replace('.', ',')}`;
+                scrollToElement(confirmacao);
+            }, 3000);
+        });
+        
+        compartilharBtn.addEventListener('click', () => {
+            alert('Compartilhe esta causa com seus amigos e familiares! Juntos podemos fazer mais!');
+            // Aqui normalmente teríamos a integração com APIs de redes sociais
+        });
+        
+        // Chat functionality
+        chatToggle.addEventListener('click', () => {
+            chatBox.classList.toggle('active');
+        });
+        
+        sendMessage.addEventListener('click', sendUserMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendUserMessage();
+            }
+        });
+        
+        function sendUserMessage() {
+            const message = userInput.value.trim();
+            if (message) {
+                // Adicionar mensagem do usuário
+                addMessage(message, 'user');
+                userInput.value = '';
+                
+                // Simular resposta do assistente após um pequeno atraso
+                setTimeout(() => {
+                    generateBotResponse(message);
+                }, 1000);
+            }
+        }
+        
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(sender);
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function generateBotResponse(userMessage) {
+            const lowerMessage = userMessage.toLowerCase();
+            let response;
+            
+            if (lowerMessage.includes('doação') || lowerMessage.includes('doar') || lowerMessage.includes('pagar')) {
+                response = "Para fazer uma doação, clique no botão 'DOAR AGORA' no site. Você pode doar qualquer valor a partir de R$ 50,00 via PIX. Todo o valor será utilizado para ajudar crianças vítimas da guerra em Israel.";
+            } else if (lowerMessage.includes('transparência') || lowerMessage.includes('dinheiro') || lowerMessage.includes('fundos')) {
+                response = "Garantimos total transparência: 85% dos recursos vão diretamente para ajuda humanitária, 10% para custos operacionais e 5% para campanhas de conscientização. Publicamos relatórios mensais detalhados em nosso site.";
+            } else if (lowerMessage.includes('criança') || lowerMessage.includes('ajuda') || lowerMessage.includes('benefício')) {
+                response = "Sua doação ajuda crianças israelenses vítimas da guerra com: abrigo seguro, alimentação, cuidados médicos, apoio psicológico e retomada dos estudos. Cada R$ 50,00 alimenta uma criança por 5 dias.";
+            } else if (lowerMessage.includes('israel') || lowerMessage.includes('guerra') || lowerMessage.includes('conflito')) {
+                response = "A guerra causou uma grave crise humanitária, com milhares de crianças desabrigadas, feridas ou traumatizadas. Nossa missão é oferecer apoio imediato e reconstruir esperanças.";
+            } else if (lowerMessage.includes('valor mínimo') || lowerMessage.includes('50')) {
+                response = "O valor mínimo para doação é R$ 50,00. Com este valor, podemos alimentar uma criança por 5 dias. Você pode doar qualquer valor acima deste mínimo.";
+            } else {
+                const responses = [
+                    "Seu apoio é essencial para crianças que perderam tudo. Cada doação faz a diferença!",
+                    "Mais de 500 crianças já foram ajudadas graças a doadores como você. Vamos juntos fazer mais!",
+                    "Além de doar, você pode compartilhar nossa causa com amigos e familiares. Quanto mais pessoas ajudarem, maior será nosso impacto.",
+                    "Tem alguma dúvida específica sobre como sua doação será utilizada? Estou aqui para esclarecer!",
+                    "Muito obrigado por seu interesse em ajudar as crianças de Israel. Juntos podemos reconstruir futuros!"
+                ];
+                response = responses[Math.floor(Math.random() * responses.length)];
+            }
+            
+            addMessage(response, 'bot');
+        }
+        
+        // Funções auxiliares
+        function scrollToElement(element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        function copiarChavePix() {
+            navigator.clipboard.writeText('criancasisrael@ong.org.br')
+                .then(() => {
+                    alert('Chave PIX copiada com sucesso! Agora é só colar no seu aplicativo bancário para fazer a doação.');
+                })
+                .catch(err => {
+                    console.error('Erro ao copiar chave PIX:', err);
+                });
+        }
+        
+        // Formatar CPF
+        const cpfInput = document.getElementById('cpf');
+        cpfInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length > 11) {
+                value = value.substring(0, 11);
+            }
+            
+            if (value.length > 9) {
+                value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            } else if (value.length > 6) {
+                value = value.replace(/(\d{3})(\d{3})(\d+)/, '$1.$2.$3');
+            } else if (value.length > 3) {
+                value = value.replace(/(\d{3})(\d+)/, '$1.$2');
+            }
+            
+            e.target.value = value;
+        });
+        
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            // Iniciar barra de progresso
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = '35%';
+            
+            // Iniciar chat com mensagem após alguns segundos
+            setTimeout(() => {
+                addMessage("Tem dúvidas sobre como ajudar? Estou aqui para responder!", 'bot');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
