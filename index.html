@@ -649,7 +649,6 @@
             margin-bottom: 12px;
         }
         
-        /* NOVO ESTILO PARA IMAGENS DE NOTÍCIAS */
         .news-image {
             width: 100%;
             border-radius: 12px;
@@ -814,7 +813,6 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            /* Ajustes para imagens em dispositivos móveis */
             .news-image {
                 height: 180px;
             }
@@ -894,7 +892,6 @@
             text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
         
-        /* Estilo para a imagem das crianças */
         .war-image {
             width: 100%;
             border-radius: 15px;
@@ -1080,8 +1077,7 @@
             <div class="news-item">
                 <div class="news-title">Crianças israelenses enfrentam traumas profundos após ataques</div>
                 <div class="news-date">24 de Junho de 2025</div>
-                <!-- Imagem adicionada -->
-                <img src="1.jpg" 
+                <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070&auto=format&fit=crop" 
                      alt="Crianças recebendo apoio psicológico" 
                      class="news-image">
                 <p>Psicólogos relatam aumento de casos de ansiedade, depressão e estresse pós-traumático entre crianças afetadas pelo conflito. Programas de apoio psicológico são urgentes.</p>
@@ -1090,8 +1086,7 @@
             <div class="news-item">
                 <div class="news-title">Organizações se unem para reconstruir escolas destruídas</div>
                 <div class="news-date">20 de Junho de 2025</div>
-                <!-- Imagem adicionada -->
-                <img src="2.jpg" 
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop" 
                      alt="Crianças em sala de aula" 
                      class="news-image">
                 <p>Iniciativa busca garantir que crianças possam retomar os estudos em ambientes seguros e adequados, essenciais para sua recuperação emocional.</p>
@@ -1146,7 +1141,7 @@
         <div id="escolhaValor" class="form-container">
             <div class="form-header">
                 <h2>Escolha o valor da doação</h2>
-                <p>Valor mínimo: R$ 50,00</p>
+                <p>Valor mínimo: R$ 15,00</p>
             </div>
             
             <div class="progress-bar-steps active-2">
@@ -1169,35 +1164,35 @@
             </div>
             
             <div class="value-options">
+                <div class="value-option" data-value="15">
+                    <div class="amount">R$ 15,00</div>
+                    <div>Alimenta 1 criança por 1 dia</div>
+                </div>
+                <div class="value-option" data-value="30">
+                    <div class="amount">R$ 30,00</div>
+                    <div>Kit de higiene pessoal</div>
+                </div>
                 <div class="value-option" data-value="50">
                     <div class="amount">R$ 50,00</div>
-                    <div>Alimenta 1 criança por 5 dias</div>
+                    <div>Alimenta 1 criança por 3 dias</div>
                 </div>
                 <div class="value-option" data-value="100">
                     <div class="amount">R$ 100,00</div>
-                    <div>Kit de higiene para 4 crianças</div>
+                    <div>Kit educativo básico</div>
                 </div>
                 <div class="value-option" data-value="150">
                     <div class="amount">R$ 150,00</div>
                     <div>Ajuda psicológica para 1 criança</div>
                 </div>
-                <div class="value-option" data-value="200">
-                    <div class="amount">R$ 200,00</div>
-                    <div>Material escolar para 2 crianças</div>
-                </div>
-                <div class="value-option" data-value="500">
-                    <div class="amount">R$ 500,00</div>
-                    <div>Ajuda médica para 1 criança</div>
-                </div>
                 <div class="value-option" id="outroValor">
                     <div class="amount">Outro valor</div>
-                    <div>(Mínimo R$ 50,00)</div>
+                    <div>(Mínimo R$ 15,00)</div>
                 </div>
             </div>
             
             <div id="customValueGroup" class="form-group" style="display: none;">
                 <label for="valorPersonalizado">Digite o valor (R$)</label>
-                <input type="number" id="valorPersonalizado" min="50" placeholder="Valor mínimo R$ 50,00">
+                <input type="number" id="valorPersonalizado" min="15" placeholder="Valor mínimo R$ 15,00">
             </div>
             
             <button id="proximoPagamentoBtn" class="btn btn-secondary">PRÓXIMO</button>
@@ -1235,9 +1230,9 @@
                 </div>
                 <div class="pix-details">
                     <p><strong>Valor da Doação:</strong></p>
-                    <p class="valor-beneficio" id="valorDoacao">R$ 150,00</p>
+                    <p class="valor-beneficio" id="valorDoacao">R$ 15,00</p>
                     <p><strong>Chave PIX:</strong></p>
-                    <p class="pix-key">criancasisrael@ong.org.br</p>
+                    <p class="pix-key">criancasisrael.org@gmail.com</p>
                     <p><i class="fas fa-exclamation-circle"></i> Após o pagamento, clique no botão abaixo para confirmar.</p>
                 </div>
                 <button class="copy-btn" onclick="copiarChavePix()">
@@ -1254,7 +1249,7 @@
                 <i class="fas fa-check-circle"></i>
             </div>
             <h2>OBRIGADO POR SUA SOLIDARIEDADE!</h2>
-            <p>Sua doação de <strong id="valorDoacaoConfirmado">R$ 150,00</strong> está sendo processada e fará uma grande diferença na vida das crianças de Israel.</p>
+            <p>Sua doação de <strong id="valorDoacaoConfirmado">R$ 15,00</strong> está sendo processada e fará uma grande diferença na vida das crianças de Israel.</p>
             <p>Você receberá um e-mail de confirmação com os detalhes da sua doação e informações sobre como seu apoio está sendo utilizado.</p>
             
             <div class="transparency">
@@ -1343,7 +1338,7 @@
         const sendMessage = document.getElementById('sendMessage');
         
         // Valor selecionado
-        let selectedAmount = 150;
+        let selectedAmount = 15;
         
         // Event Listeners
         doarBtn.addEventListener('click', () => {
@@ -1386,19 +1381,19 @@
         
         valorPersonalizado.addEventListener('input', function() {
             const value = parseFloat(this.value);
-            if (value >= 50) {
+            if (value >= 15) {
                 selectedAmount = value;
             }
         });
         
         proximoPagamentoBtn.addEventListener('click', () => {
-            if (selectedAmount >= 50) {
+            if (selectedAmount >= 15) {
                 escolhaValor.classList.remove('active-form');
                 pagamentoPix.classList.add('active-form');
                 valorDoacao.textContent = `R$ ${selectedAmount.toFixed(2).replace('.', ',')}`;
                 scrollToElement(pagamentoPix);
             } else {
-                alert('Por favor, selecione um valor de doação (mínimo R$ 50,00).');
+                alert('Por favor, selecione um valor de doação (mínimo R$ 15,00).');
             }
         });
         
@@ -1461,15 +1456,15 @@
             let response;
             
             if (lowerMessage.includes('doação') || lowerMessage.includes('doar') || lowerMessage.includes('pagar')) {
-                response = "Para fazer uma doação, clique no botão 'DOAR AGORA' no site. Você pode doar qualquer valor a partir de R$ 50,00 via PIX. Todo o valor será utilizado para ajudar crianças vítimas da guerra em Israel.";
+                response = "Para fazer uma doação, clique no botão 'DOAR AGORA' no site. Você pode doar qualquer valor a partir de R$ 15,00 via PIX. Todo o valor será utilizado para ajudar crianças vítimas da guerra em Israel.";
             } else if (lowerMessage.includes('transparência') || lowerMessage.includes('dinheiro') || lowerMessage.includes('fundos')) {
                 response = "Garantimos total transparência: 85% dos recursos vão diretamente para ajuda humanitária, 10% para custos operacionais e 5% para campanhas de conscientização. Publicamos relatórios mensais detalhados em nosso site.";
             } else if (lowerMessage.includes('criança') || lowerMessage.includes('ajuda') || lowerMessage.includes('benefício')) {
-                response = "Sua doação ajuda crianças israelenses vítimas da guerra com: abrigo seguro, alimentação, cuidados médicos, apoio psicológico e retomada dos estudos. Cada R$ 50,00 alimenta uma criança por 5 dias.";
+                response = "Sua doação ajuda crianças israelenses vítimas da guerra com: abrigo seguro, alimentação, cuidados médicos, apoio psicológico e retomada dos estudos. Cada R$ 15,00 alimenta uma criança por 1 dia.";
             } else if (lowerMessage.includes('israel') || lowerMessage.includes('guerra') || lowerMessage.includes('conflito')) {
                 response = "A guerra causou uma grave crise humanitária, com milhares de crianças desabrigadas, feridas ou traumatizadas. Nossa missão é oferecer apoio imediato e reconstruir esperanças.";
-            } else if (lowerMessage.includes('valor mínimo') || lowerMessage.includes('50')) {
-                response = "O valor mínimo para doação é R$ 50,00. Com este valor, podemos alimentar uma criança por 5 dias. Você pode doar qualquer valor acima deste mínimo.";
+            } else if (lowerMessage.includes('valor mínimo') || lowerMessage.includes('15')) {
+                response = "O valor mínimo para doação é R$ 15,00. Com este valor, podemos alimentar uma criança por 1 dia. Você pode doar qualquer valor acima deste mínimo.";
             } else {
                 const responses = [
                     "Seu apoio é essencial para crianças que perderam tudo. Cada doação faz a diferença!",
@@ -1490,7 +1485,7 @@
         }
         
         function copiarChavePix() {
-            navigator.clipboard.writeText('criancasisrael@ong.org.br')
+            navigator.clipboard.writeText('criancasisrael.org@gmail.com')
                 .then(() => {
                     alert('Chave PIX copiada com sucesso! Agora é só colar no seu aplicativo bancário para fazer a doação.');
                 })
